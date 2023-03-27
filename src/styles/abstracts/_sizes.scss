@@ -1,0 +1,5 @@
+@use '../functions' as f;
+
+$sidebar-width: 217px;
+$header-height: 64px;
+$container: f.toRem(1200);

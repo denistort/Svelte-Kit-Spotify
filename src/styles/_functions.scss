@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@function toRem($value) {
+	@return #{math.div($value, 10)}rem;
+}
+
+@function calcEmForBreakpoints($px) {
+	@return #{math.div($px, 16)}em;
+}

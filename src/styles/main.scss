@@ -1,0 +1,89 @@
+@use 'functions';
+@use 'abstracts/colors';
+@use 'abstracts/font';
+@use 'breakpoints' as b;
+
+@import '@fontsource/metropolis';
+@import '@fontsource/metropolis/300';
+@import '@fontsource/metropolis/500';
+@import '@fontsource/metropolis/600';
+@import '@fontsource/metropolis/700';
+
+html {
+	font-size: font.$default-size;
+	@include b.max('lg') {
+		font-size: 60%;
+	}
+}
+
+body {
+	font-family: font.$font-family;
+	background-color: colors.$bg-color;
+	color: colors.$text-color;
+}
+
+::selection {
+	background-color: colors.$accent-color;
+	color: colors.$text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	line-height: 1.4;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: functions.toRem(36);
+}
+h2 {
+	font-size: functions.toRem(32);
+}
+h3 {
+	font-size: functions.toRem(28);
+}
+h4 {
+	font-size: functions.toRem(24);
+}
+h5 {
+	font-size: functions.toRem(20);
+}
+h6 {
+	font-size: functions.toRem(16);
+}
+
+p {
+	font-size: functions.toRem(16);
+	line-height: 1.7;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+a:active,
+a:visited {
+	color: colors.$accent-color;
+}
+
+select,
+input,
+button,
+a {
+	&:focus-visible {
+		outline: 2px solid colors.$accent-color;
+		outline-offset: 2px;
+	}
+}
+
+button {
+	font: inherit;
+}
+
+#nprogress .bar {
+	background-color: colors.$accent-color;
+}
