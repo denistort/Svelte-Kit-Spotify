@@ -1,8 +1,11 @@
 <script lang="ts">
-	import { tippyAction } from './../../actions/tippy.ts';
+	import { tippyAction } from './../../actions/tippy';
 	import Hr from '$shared/ui/Hr.svelte';
 	import { fade, fly } from 'svelte/transition';
+	import {} from 'svelte';
 	import { clickOutside } from '../../directives/clickOutside';
+	import { invalidateAll } from '$app/navigation';
+
 	type $$Props = {
 		img: string;
 		name: string;
@@ -134,7 +137,14 @@
 			</li>
 			<Hr />
 			<li>
-				<a href="/api/auth/logout">Logout</a>
+				<a
+					on:click={async (e) => {
+						e.preventDefault();
+						await fetch('/api/auth/logout');
+						await invalidateAll();
+					}}
+					href="/api/auth/logout">Logout</a
+				>
 			</li>
 		</ul>
 	</div>

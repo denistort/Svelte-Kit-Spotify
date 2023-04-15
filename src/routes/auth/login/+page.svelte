@@ -51,6 +51,7 @@
 	}
 	.cover {
 		flex: 1;
+		display: flex;
 		& img {
 			object-fit: contain;
 			max-width: 100%;

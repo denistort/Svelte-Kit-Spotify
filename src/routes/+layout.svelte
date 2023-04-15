@@ -4,18 +4,19 @@
 	import SideBar from './../lib/components/SideBar.svelte';
 	import type { LayoutData } from './$types';
 	import 'modern-normalize/modern-normalize.css';
-	import '../styles/main.scss';
-	import { LogoutButton } from '$shared/ui';
 	import Header from '$lib/components/Header.svelte';
 	import { page } from '$app/stores';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
+	
+	import '../styles/main.scss';
+	
 	export let data: LayoutData;
 	console.log(data);
-
+	
 	Nprogress.configure({
 		showSpinner: false,
-
 	})
+	
 	beforeNavigate(() => {
 		Nprogress.start()
 	})
@@ -71,7 +72,6 @@
 			flex: 1;
 			#main-content {
 				padding: functions.toRem(64) functions.toRem(30);
-				height: 10000px;
 			}
 		}
 	}
